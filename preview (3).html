@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treball de Recerca · Georgina Escabrós · Rítmica Check</title>
+<style>
+:root{
+  --ink:#27212b;--muted:#756b79;--paper:#fffdfb;--lav:#eadff2;--lav2:#d7c1e2;--bad:#c55a68;
+  --plum:#6d477d;--rose:#c884a7;--line:#eadfe9;--good:#5b9b6d;--yellow:#d5a93a;--orange:#d47d43;--red:#c55a68;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f7f3f7;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+header{min-height:610px;display:flex;align-items:center;position:relative;overflow:hidden;
+background:radial-gradient(circle at 80% 25%,#f8e9f1 0 13%,transparent 14%),
+linear-gradient(135deg,#eee4f2 0%,#fffaf8 58%,#f6e8ef 100%)}
+header:after{content:"";position:absolute;width:520px;height:520px;border:1px solid #d9bfdc;border-radius:50%;right:-180px;bottom:-240px;opacity:.7}
+.top{position:absolute;top:0;left:0;right:0;padding:22px 0;z-index:3}
+.topbar{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;letter-spacing:.08em;color:var(--plum);font-size:14px}
+.pill{background:#ffffffb8;border:1px solid #fff;padding:8px 13px;border-radius:999px;font-size:12px;color:var(--plum)}
+.hero{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;padding:100px 0 65px}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--plum);font-weight:800}
+h1{font-family:Georgia,serif;font-size:clamp(48px,7vw,82px);line-height:.98;font-weight:500;margin:18px 0;color:#302633}
+.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:650px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:13px 19px;font-weight:800;cursor:pointer}
+.btn.primary{background:var(--plum);color:white}.btn.secondary{background:white;border:1px solid var(--line);color:var(--plum)}
+.visual{min-height:350px;display:flex;align-items:center;justify-content:center;position:relative}
+.orbit{width:300px;height:300px;border:1px solid #cfb3d5;border-radius:50%;position:relative}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #ddc7df;border-radius:50%}
+.orbit:before{inset:35px}.orbit:after{inset:72px}
+.ribbon{position:absolute;width:225px;height:110px;border-bottom:3px solid #c58baa;border-radius:0 0 70% 70%;transform:rotate(-25deg);top:85px;left:45px}
+.bottle{position:absolute;left:105px;top:92px;width:88px;height:155px;border-radius:19px 19px 24px 24px;background:linear-gradient(90deg,#ead8ee,#fff8fb,#d9c0df);box-shadow:0 20px 35px #6d477d22}
+.bottle:before{content:"";position:absolute;width:38px;height:35px;background:#70507d;left:25px;top:-24px;border-radius:8px 8px 3px 3px}
+.bottle span{position:absolute;left:10px;right:10px;top:65px;text-align:center;font-family:Georgia,serif;font-size:12px;color:#6d477d}
+nav{position:sticky;top:0;z-index:10;background:#fffdfbeF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.navin{display:flex;gap:26px;overflow:auto;padding:14px 0;font-size:13px;font-weight:800;color:#66596a}
+section{padding:72px 0}
+.section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:28px}
+.eyebrow{color:var(--plum);font-weight:900;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+h2{font-family:Georgia,serif;font-size:42px;font-weight:500;margin:7px 0}
+.lead{color:var(--muted);line-height:1.65;max-width:760px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-35px;position:relative;z-index:4}
+.stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 35px #4d334d0b}
+.stat b{font-family:Georgia,serif;font-size:30px;font-weight:500;display:block;color:var(--plum)}
+.stat small{color:var(--muted)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:0 14px 40px #4d334d09}
+.filters{display:grid;grid-template-columns:1fr 180px;gap:12px;margin-bottom:22px}
+input,select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid #ded3df;background:#fff;font:inherit;color:var(--ink);outline:none}
+input:focus,select:focus{border-color:#b990c3;box-shadow:0 0 0 4px #eadff277}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.product{background:#fff;border:1px solid var(--line);border-radius:20px;padding:0;cursor:pointer;transition:.18s;position:relative;overflow:hidden}
+.product:hover{transform:translateY(-3px);box-shadow:0 15px 32px #4d334d14}
+.product:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--lav2);z-index:2}.product-img{width:100%;height:210px;object-fit:contain;background:#faf7fa;display:block}.product-body{padding:20px}.score-wrap{display:flex;align-items:center;gap:8px}.score{font-family:Georgia,serif;font-size:29px}.score-label{font-size:11px;font-weight:800;color:var(--muted)}.score.green{color:var(--good)}.score.yellow{color:var(--yellow)}.score.orange{color:var(--orange)}.score.red{color:var(--red)}.level.green{color:var(--good);font-weight:800}.level.yellow{color:#9a7517;font-weight:800}.level.orange{color:var(--orange);font-weight:800}.level.red{color:var(--red);font-weight:800}.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.legend span{padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}.legend .lg{background:#e9f4eb;color:#397346}.legend .ly{background:#fff6d9;color:#8b6b12}.legend .lo{background:#fff0e5;color:#a75525}.legend .lr{background:#fbe8eb;color:#a43d4c}.impact{margin-top:18px;background:linear-gradient(135deg,#f7eef9,#fff8f5);border:1px solid var(--line);border-radius:18px;padding:18px}.impact b{color:var(--plum)}
+.product-top{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.tag{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;background:#f1e9f4;color:var(--plum);padding:7px 9px;border-radius:999px}
+.score{font-family:Georgia,serif;font-size:29px;color:var(--plum)}
+.product h3{font-size:17px;margin:18px 0 4px;line-height:1.25}
+.brand{color:var(--muted);font-size:13px}
+.meter{height:6px;background:#eee8ee;border-radius:99px;margin:15px 0 9px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:99px;background:var(--plum)}
+.level{font-size:12px;color:var(--muted)}
+.compare{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{padding:14px 12px;border-bottom:1px solid #eee7ef;text-align:left;font-size:13px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#756b79;background:#fcfafc}
+.delta.pos{color:var(--good);font-weight:800}.delta.neg{color:var(--bad);font-weight:800}
+.method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.method-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
+.number{width:34px;height:34px;border-radius:50%;background:var(--lav);color:var(--plum);display:grid;place-items:center;font-weight:900}
+.method-card h3{margin-bottom:8px}.method-card p{color:var(--muted);line-height:1.6;font-size:14px}
+.sources{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.source-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
+.source-card p,.source-card li{color:var(--muted);line-height:1.65;font-size:14px}
+.notice{background:#fbf5e9;border:1px solid #eeddb7;border-radius:18px;padding:17px;color:#6f5a37;font-size:13px;line-height:1.6}
+footer{background:#302633;color:#eee5ef;padding:45px 0;margin-top:20px}
+footer p{color:#cfc1d0;font-size:13px}
+.modal{position:fixed;inset:0;background:#21192788;backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal.open{display:flex}
+.modal-box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fffdfb;border-radius:28px;padding:30px;position:relative}
+.close{position:absolute;right:18px;top:18px;border:0;background:#f0e8f1;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:20px;color:var(--plum)}
+.detail-score{display:flex;align-items:end;gap:14px;margin:20px 0}.detail-score strong{font:500 52px Georgia;color:var(--plum)}
+.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{background:#f3edf4;border-radius:999px;padding:7px 10px;font-size:12px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.detail-box{background:#faf7fa;border-radius:16px;padding:17px}.detail-box h4{margin:0 0 8px}.detail-box p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.visual{display:none}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}.method,.sources{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 24px,1160px)}.hero{padding-top:80px}.stats{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.section-head{display:block}.section-head .lead{margin-top:10px}h2{font-size:34px}.panel{padding:18px}.detail-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="inici">
+  <div class="top"><div class="wrap topbar"><div class="logo">TREBALL DE RECERCA · GEORGINA ESCABRÓS</div><div class="pill">Rítmica Check · 2026</div></div></div>
+  <div class="wrap hero">
+    <div>
+      <div class="kicker">Cosmètica · anàlisi · gimnàstica rítmica</div>
+      <h1>Entendre el que portem a la pell.</h1>
+      <p>Una guia interactiva creada a partir de l’anàlisi dels productes estètics estudiats en el Treball de Recerca: composició, puntuacions de Yuka i INCI Beauty, ingredients destacats i interpretació dels resultats.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#productes">Explorar productes</a>
+        <a class="btn secondary" href="#metodologia">Veure metodologia</a>
+      </div>
+    </div>
+    <div class="visual"><div class="orbit"><div class="ribbon"></div><div class="bottle"><span>RÍTMICA<br>CHECK</span></div></div></div>
+  </div>
+</header>
+
+<nav><div class="wrap navin">
+  <a href="#productes">Productes</a><a href="#comparacio">Comparació</a><a href="#alternatives">Alternatives</a><a href="#metodologia">Metodologia</a><a href="#fonts">Fonts i limitacions</a>
+</div></nav>
+
+<main>
+<section class="wrap" style="padding-bottom:35px">
+  
+</section>
+
+<section id="productes">
+<div class="wrap">
+  <div class="section-head">
+    <div><div class="eyebrow">01 · Exploració</div><h2>Productes analitzats</h2></div>
+    <p class="lead">Busca per marca o producte i filtra per categoria. Clica qualsevol targeta per obrir la seva fitxa.</p>
+  </div>
+  <div class="panel">
+    <div class="filters"><input id="q" placeholder="🔎  Busca una marca o un producte…"><select id="cat"><option>Totes les categories</option><option>Màscara de pestanyes</option><option>Coloret</option><option>Pintallavis</option><option>Gel fixador</option></select></div><div class="legend"><span class="lg">Verd · Excel·lent (75–100)</span><span class="ly">Groc · Bo (50–74)</span><span class="lo">Taronja · Mediocre (25–49)</span><span class="lr">Vermell · Dolent (0–24)</span></div>
+    <div id="grid" class="grid"></div>
+  </div>
+</div>
+</section>
+
+<section id="comparacio">
+<div class="wrap">
+  <div class="section-head">
+    <div><div class="eyebrow">02 · Contrast</div><h2>Yuka vs. INCI Beauty</h2></div>
+    <p class="lead">Aquí es comparen els productes que tenen puntuació disponible a les dues eines. La diferència no indica quin producte és “bo” o “dolent”: serveix per veure que Yuka i INCI Beauty poden valorar una mateixa composició de manera diferent.</p>
+  </div>
+  <div class="panel compare">
+    <table><thead><tr><th>Producte</th><th>Yuka</th><th>INCI Beauty</th><th>Diferència</th><th>Què ens indica?</th></tr></thead><tbody id="cmp"></tbody></table>
+    <div class="notice" style="margin-top:20px">La comparació mostra que les dues eines poden donar resultats diferents perquè utilitzen criteris propis. Les puntuacions són orientatives i no equivalen a una mesura directa del risc per a la salut.</div>
+  </div>
+</div>
+</section>
+
+<section id="alternatives">
+<div class="wrap">
+  <div class="section-head">
+    <div><div class="eyebrow">03 · Alternatives</div><h2>Altres productes per estudiar</h2></div>
+    <p class="lead">No es tracta de dir que una marca és “segura” i una altra no, sinó de proposar productes que val la pena analitzar amb els mateixos criteris del treball.</p>
+  </div>
+  <div class="sources">
+    <div class="source-card"><h3>Weleda</h3><p>La marca disposa de productes formulats per a pells sensibles. Per exemple, la <b>Crema Facial de Malva Blanca</b> es presenta com una crema sense perfum, sense olis essencials com a perfum i destinada a pells hipersensibles o atòpiques.</p><p><a href="https://www.weleda.es/product/crema-facial-de-malva-blanca-g009666" target="_blank" rel="noopener" style="color:var(--plum);font-weight:800">Veure producte de Weleda →</a></p></div>
+    <div class="source-card"><h3>APIVITA</h3><p>APIVITA també comercialitza productes amb una elevada proporció d’ingredients d’origen natural, però alguns incorporen olis essencials, perfum i al·lèrgens de fragància com limonene, linalool, geraniol o citronellol. Per això cal valorar cada formulació individualment.</p><p><a href="https://www.apivita.com/es/serum-corrector-c15-propoleo-10-22-01-765.html" target="_blank" rel="noopener" style="color:var(--plum);font-weight:800">Veure exemple d’APIVITA →</a></p></div>
+  </div>
+  <div class="notice" style="margin-top:18px">La paraula “natural” no és, per si sola, una garantia de major seguretat. En aquest treball, qualsevol alternativa s’hauria de comparar amb els mateixos criteris: composició INCI, conservants, al·lèrgens de fragància, puntuacions de Yuka i INCI Beauty i, quan sigui possible, els mateixos assaigs experimentals.</div>
+</div>
+</section>
+
+<section id="metodologia">
+<div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">04 · Com s’ha construït</div><h2>Metodologia</h2></div></div>
+  <div class="method">
+    <div class="method-card"><div class="number">1</div><h3>Selecció</h3><p>Es van seleccionar productes utilitzats en el context de la gimnàstica rítmica i es van agrupar en quatre categories: màscara de pestanyes, coloret, pintallavis i gel fixador.</p></div>
+    <div class="method-card"><div class="number">2</div><h3>Anàlisi</h3><p>Es va revisar l’etiquetatge i la composició i es van consultar Yuka, INCI Beauty i COSING per obtenir informació complementària sobre els ingredients.</p></div>
+    <div class="method-card"><div class="number">3</div><h3>Interpretació</h3><p>Es comparen les puntuacions, els ingredients destacats i les diferències entre Yuka i INCI Beauty. La web també incorpora missatges breus per ajudar a interpretar els resultats amb criteri.</p></div>
+  </div>
+  <div class="panel" style="margin-top:18px">
+    <div class="eyebrow">Valoració pròpia</div>
+    <h3 style="font-size:24px;margin:8px 0">Un sistema encara en desenvolupament</h3>
+    <p class="lead">El projecte preveu una valoració pròpia basada en quatre criteris: ingredients restringits o sota avaluació, al·lèrgens de perfum declarats, resultat de l’assaig microbiològic i coincidència entre Yuka i INCI Beauty. <b>Els pesos de cada criteri no s’han definit aquí</b> per evitar inventar una ponderació que no consta en les dades del treball.</p>
+  </div>
+</div>
+</section>
+
+<section id="fonts">
+<div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">05 · Transparència</div><h2>Fonts i limitacions</h2></div></div>
+  <div class="sources">
+    <div class="source-card"><h3>Fonts consultades</h3><ul>
+      <li>Etiquetatge i composició dels productes analitzats.</li>
+      <li>Yuka i INCI Beauty per a les puntuacions comparatives.</li>
+      <li>COSING per a funcions i informació reguladora dels ingredients.</li>
+      <li>Literatura científica i normativa europea relacionada amb cosmètics.</li>
+    </ul></div>
+    <div class="source-card"><h3>Com interpretar els resultats</h3><p>Yuka no proporciona les concentracions dels ingredients i la seva puntuació no és una mesura directa de risc individual. Les diferències amb INCI Beauty mostren que les eines utilitzen sistemes de valoració diferents.</p><p>La web té una finalitat educativa i de divulgació del Treball de Recerca. No substitueix una valoració mèdica ni constitueix una certificació de seguretat.</p></div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><div class="logo" style="color:#eadff0">RÍTMICA CHECK</div><p>Treball de Recerca de Georgina Escabrós · Els productes estètics a la gimnàstica rítmica.</p></div></footer>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="detail"></div></div></div>
+
+<script>
+const data = [
+["Màscara de pestanyes","L'Oréal Paris","Mascara Panorama",29,"Paraffin · Phenoxyethanol","https://lilidrogerie.gr/image/cache/catalog/product-upload/30149649_1-800x800.jpg"],
+["Màscara de pestanyes","L'Oréal Paris","Paradise Big Deal",45,"Phenoxyethanol","https://licilasicdn.s3.amazonaws.com/public/product_images/49875/main/original.jpg"],
+["Màscara de pestanyes","Maybelline New York","Sky High",24,"Paraffin · Phenoxyethanol","https://images.wehkamp.nl/i/wehkamp/16734372_pb_01/maybelline-new-york-lash-sensational-sky-high-mascara-very-black-zwart-0000030166967.jpg?qlt=75&w=1200"],
+["Màscara de pestanyes","Maybelline New York","The Falsies Surreal",9,"BHT · Paraffin","https://d2o812a6k13pkp.cloudfront.net/Productos/40562209_0120240509171044.jpg"],
+["Màscara de pestanyes","Rimmel","Volume Hyaluronic Acid",29,"Polybutene · Microcrystalline wax",null],
+["Màscara de pestanyes","Rimmel","Wonder'Extension",15,"Paraffin · Phenoxyethanol","https://images.fravega.com/f1000/f8025a38ebaac965efb494e88cd1bd38.jpg"],
+["Coloret","NYX","Buttermelt Blush",36,"Phenoxyethanol","https://www.medoget.com/cdn/shop/files/NYX_Professional_Makeup_Buttermelt_Blush_07_Butta_With_Time.png?v=1762424573&width=1030"],
+["Coloret","Deliplus","Blush mate 03 rosa (líquid)",67,"Cap ingredient assenyalat","https://iber.market/wp-content/uploads/2025/08/a5737208a20e4ace5c47b1e315b0e959-scaled.jpg"],
+["Coloret","Deliplus","Blush Mate (compacte)",30,"Polybutene · Phenoxyethanol","https://iber.market/wp-content/uploads/2025/08/62cb4f7076b0cbba385f1dc5cd211ba9-scaled.jpg"],
+["Coloret","Essence","Soft Touch",34,"Phenoxyethanol","https://eleven.se/storage/4F142F2B623432E8EEDABA2EC60D79D749122C7D9641A836726EF84C1D68BDC2/b561915fe1a14bbcbc6c385a7d8ce4c3/jpg/media/45639f1d169a4db29cdde4cd0e50fb32/B-194978.jpg?fit=bounds&height=560&quality=75&width=560"],
+["Coloret","Essence","Baby Got Blush 30",81,"Cap ingredient assenyalat","https://zedstorelb.com/cdn/shop/files/kremovye-rumyana-v-stike-essence-baby-got-blush_1200x1200.jpg?v=1686396206"],
+["Coloret","Revolution","Icon Blush Authentic Peach (paleta)",6,"Microcrystalline wax · Synthetic wax · Ozokerite · Phenoxyethanol · Polyethylene","https://www.revolutionbeauty.me/media/catalog/product/7/a/7a8a1b5f17cf5332663b1f8eb518db8a_1.jpg"],
+["Coloret","Revolution","Powder Blush",40,"Phenoxyethanol","https://www.revolutionbeauty.com/dw/image/v2/BCZJ_PRD/on/demandware.static/-/Sites-revbe-master-catalog/default/dwdf538a6a/images/hi-res/1884556_Ballerina-1-reshot34.jpg?sh=660&sm=fit&strip=false&sw=660"],
+["Coloret","Sheglam","Color Bloom liquid blush – On Point",20,"Phenoxyethanol","https://www.ohsogo.com/cdn/shop/files/OnPoint.jpg?v=1720520897&width=1500"],
+["Pintallavis","Deliplus","24H Lasting Lips",29,"Synthetic wax · Titanium dioxide","https://iber.market/wp-content/uploads/2025/08/2225727d19bc50ed09b33f70c79e3cc2-scaled.jpg"],
+["Pintallavis","L'Oréal Paris","Matte resistent (carmín)",5,"Microcrystalline wax · Calcium aluminum borosilicate · PET · Titanium dioxide","https://cdn.file-vault.shop/cdn/736/2025/01/17/LOreal-Paris-Infallible-Matte-Resistance-Liquid-Lipstick-up-to-16-Hour-Wear-Le-Rouge-Paris-420-016-Fl-Oz230-Shopping-Spree-1284587-4910545.jpg"],
+["Pintallavis","Maybelline New York","Superstay 24H (rouge passion)",0,"Alumina · Calcium aluminum borosilicate · Aluminum hydroxide · PET · Paraffin · Titanium dioxide · Ozokerite","https://www.rossmann.de/media-neu/825/MAM_8258688/MAM_8258688_SHOP_IMAGE_2.0.png?auto=webp&canvas=600%2C600&fit=bounds&format=webply&height=600&quality=80&width=600"],
+["Pintallavis","NYX Cosmetics","Lip Lingerie XXL",35,"Phenoxyethanol","https://i5.walmartimages.com/asr/8576f234-78e7-4cef-beeb-b84683abbb4a.fcb2eef8352d3d8aba61446eea9aa8e0.jpeg"],
+["Pintallavis","NYX Cosmetics","Butter Lip Gloss",0,"Octinoxate · BHT · Mineral oil · Synthetic wax · Phenoxyethanol · Titanium dioxide","https://www.nyxcosmetics.gr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-nyx-master-catalog/default/dw71683c8b/ProductImages/2020/Lips/Butter_Gloss/2021-updated/NYX-PMU-Makeup-Lips-Lip-Gloss-Butter-Gloss-BLG15-Angel-Food-Cake-000-0800897828363-OpenSwatch.jpeg"],
+["Gel fixador","Giorgi Line","Gel fijador Control Total",60,"Cap ingredient assenyalat en l’annex","https://cdn-bm.aktiosdigitalservices.com/tol/bm/media/product/img/700x700/A64825_00.jpg?t=20251224030327"],
+["Gel fixador","Deliplus","Xtra Forte Fixing Gel",15,"Benzyl salicylate · Hexamethylindanopyran · Phenoxyethanol","https://prod-mercadona.imgix.net/images/03ced9a1f31ca4756c0c7578fa82225a.jpg?fit=crop&h=1600&w=1600"],
+["Gel fixador","Got2b (Schwarzkopf)","Glued Water Resistant",33,"Phenoxyethanol","https://www.druni.es/media/catalog/product/1/3/1309498.jpg?canvas=700%3A700&fit=bounds&height=700&quality=80&width=700"],
+["Gel fixador","Taft (Schwarzkopf)","Styling Gel Power Invisible",33,"Phenoxyethanol","https://prod.cdn.plein.nl/producten/1000x1000/1087942.jpg"]
+];
+const inci = {
+"L'Oréal Paris|Mascara Panorama":34,
+"Maybelline New York|Superstay 24H (rouge passion)":48.5,
+"NYX Cosmetics|Lip Lingerie XXL":17.5,
+"NYX Cosmetics|Butter Lip Gloss":0,
+"L'Oréal Paris|Matte resistent (carmín)":0,
+"Deliplus|24H Lasting Lips":13,
+"Giorgi Line|Gel fijador Control Total":49,
+"Deliplus|Xtra Forte Fixing Gel":7,
+"Got2b (Schwarzkopf)|Glued Water Resistant":0,
+"Taft (Schwarzkopf)|Styling Gel Power Invisible":44.5,
+"Revolution|Icon Blush Authentic Peach (paleta)":38.5,
+"Essence|Baby Got Blush 30":70
+};
+const q=document.getElementById("q"),cat=document.getElementById("cat"),grid=document.getElementById("grid");
+function level(x){return x>=75?"Excel·lent":x>=50?"Bo":x>=25?"Mediocre":"Dolent"}
+function tone(x){return x>=75?"green":x>=50?"yellow":x>=25?"orange":"red"}
+function impactText(p){
+ const key=p[1]+"|"+p[2];
+ if(Object.prototype.hasOwnProperty.call(inci,key)){
+   const d=+(inci[key]-p[3]).toFixed(1);
+   if(Math.abs(d)<1) return "Les dues eines coincideixen. Això mostra que, en aquest cas, la valoració de la composició és molt similar.";
+   if(Math.abs(d)>=25) return `Les dues eines donen una valoració molt diferent (${d>0?"INCI Beauty és més alta":"Yuka és més alta"}). La diferència és un recordatori que una sola puntuació no explica tota la composició.`;
+   return `Hi ha una diferència de ${Math.abs(d)} punts entre les dues eines. És útil mirar els ingredients i no quedar-se només amb un número.`;
+ }
+ return "La puntuació Yuka és orientativa: per entendre el producte cal mirar també la seva composició i el context d’ús.";
+}
+function render(){
+ const s=q.value.toLowerCase(),c=cat.value;
+ const arr=data.map((p,i)=>({...p,i})).filter(p=>(c==="Totes les categories"||p[0]===c)&&(`${p[1]} ${p[2]}`.toLowerCase().includes(s)));
+ grid.innerHTML=arr.length?arr.map(p=>`<article class="product" onclick="openDetail(${p.i})">
+   ${p[5]?`<img class="product-img" src="${p[5]}" alt="${p[1]} ${p[2]}" loading="lazy" onerror="imgFallback(this, ${JSON.stringify(p[1]+" · "+p[2])})">`:`<div class="product-img" style="display:grid;place-items:center;color:#8a7d8f;font-size:13px">Foto no disponible</div>`}
+   <div class="product-body"><div class="product-top"><span class="tag">${p[0]}</span><div class="score-wrap"><span class="score ${tone(p[3])}">${p[3]}</span><span class="score-label">Yuka /100</span></div></div>
+   <h3>${p[2]}</h3><div class="brand">${p[1]}</div>
+   <div class="meter"><i style="width:${p[3]}%;background:${p[3]>=75?'var(--good)':p[3]>=50?'var(--yellow)':p[3]>=25?'var(--orange)':'var(--red)'}"></i></div><div class="level ${tone(p[3])}">${level(p[3])}</div></div>
+ </article>`).join(""):`<p style="color:var(--muted)">No s’han trobat productes.</p>`;
+}
+function imgFallback(img,label){
+ img.onerror=null;
+ const box=document.createElement("div");
+ box.style.cssText="width:100%;height:100%;min-height:210px;display:grid;place-items:center;text-align:center;padding:28px;background:linear-gradient(135deg,#f3eaf5,#fff8f7);color:#6d477d;font:600 14px Georgia,serif;border-radius:18px";
+ box.textContent=label+"\nFoto no disponible";
+ img.replaceWith(box);
+}
+function openDetail(i){
+ const p=data[i], key=p[1]+"|"+p[2], has=Object.prototype.hasOwnProperty.call(inci,key), t=tone(p[3]);
+ document.getElementById("detail").innerHTML=`
+ ${p[5]?`<img src="${p[5]}" alt="${p[1]} ${p[2]}" style="width:100%;height:260px;object-fit:contain;background:#faf7fa;border-radius:18px;margin-bottom:20px" onerror="imgFallback(this, ${JSON.stringify(p[1]+" · "+p[2])})">`:''}
+ <div class="eyebrow">${p[0]}</div><h2 style="max-width:620px;margin-top:6px">${p[2]}</h2><div class="brand">${p[1]}</div>
+ <div class="detail-score"><strong class="${t}">${p[3]}</strong><span>/100<br><small><b>Puntuació Yuka</b> · ${level(p[3])}</small></span></div>
+ <div class="detail-grid">
+  <div class="detail-box"><h4>Ingredients destacats</h4><p>${p[4]}</p></div>
+  <div class="detail-box"><h4>INCI Beauty</h4><p>${has?inci[key]+"/100 (convertit des de 0–20)":"No forma part de la comparació amb INCI Beauty"}</p></div>
+  <div class="detail-box"><h4>Lectura del resultat</h4><p>${impactText(p)}</p></div>
+  <div class="detail-box"><h4>Què cal tenir en compte?</h4><p>La puntuació és una eina orientativa. No equival directament a una mesura de risc individual ni permet valorar per si sola si un producte és “segur” o “perillós”.</p></div>
+ </div>
+ <div class="impact"><b>💡 Per a les gimnastes:</b><br>${p[3]>=75?"Una puntuació alta no vol dir que no calgui mirar la composició: informa’t i compara abans de triar.":p[3]>=50?"Aquest resultat pot semblar favorable, però el més important és entendre quins ingredients hi ha darrere de la puntuació.":p[3]>=25?"Aquest resultat és intermedi. No et quedis només amb el número: mira la composició i recorda que les eines poden valorar els ingredients de manera diferent.":"Aquest resultat és baix segons el criteri de Yuka. No significa automàticament que el producte sigui perillós, però sí que és un bon motiu per revisar què hi ha a la seva composició."}</div>`;
+ document.getElementById("modal").classList.add("open");
+}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+q.addEventListener("input",render);cat.addEventListener("change",render);render();
+
+const tbody=document.getElementById("cmp");
+tbody.innerHTML=Object.entries(inci).map(([key,v])=>{
+ const [brand,name]=key.split("|"),p=data.find(x=>x[1]===brand&&x[2]===name),d=+(v-p[3]).toFixed(1);
+ const msg=Math.abs(d)<1?"Coincideixen":Math.abs(d)>=25?"Gran diferència: revisa els ingredients":"Diferència moderada: mira la composició";
+ return `<tr><td><b>${name}</b><br><span style="color:#756b79">${brand}</span></td><td>${p[3]}/100</td><td>${v}/100</td><td class="delta ${d>=0?"pos":"neg"}">${d>0?"+":""}${d}</td><td>${msg}</td></tr>`;
+}).join("");
+</script>
+</body>
+</html>
