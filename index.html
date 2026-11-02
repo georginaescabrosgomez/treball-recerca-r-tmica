@@ -55,7 +55,7 @@ input:focus,select:focus{border-color:#b990c3;box-shadow:0 0 0 4px #eadff277}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .product{background:#fff;border:1px solid var(--line);border-radius:20px;padding:0;cursor:pointer;transition:.18s;position:relative;overflow:hidden}
 .product:hover{transform:translateY(-3px);box-shadow:0 15px 32px #4d334d14}
-.product:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--lav2);z-index:2}.product-img{width:100%;height:210px;object-fit:contain;background:#faf7fa;display:block}.product-body{padding:20px}.score-wrap{display:flex;align-items:center;gap:8px}.score{font-family:Georgia,serif;font-size:29px}.score-label{font-size:11px;font-weight:800;color:var(--muted)}.score.green{color:var(--good)}.score.yellow{color:var(--yellow)}.score.orange{color:var(--orange)}.score.red{color:var(--red)}.level.green{color:var(--good);font-weight:800}.level.yellow{color:#9a7517;font-weight:800}.level.orange{color:var(--orange);font-weight:800}.level.red{color:var(--red);font-weight:800}.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.legend span{padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}.legend .lg{background:#e9f4eb;color:#397346}.legend .ly{background:#fff6d9;color:#8b6b12}.legend .lo{background:#fff0e5;color:#a75525}.legend .lr{background:#fbe8eb;color:#a43d4c}.impact{margin-top:18px;background:linear-gradient(135deg,#f7eef9,#fff8f5);border:1px solid var(--line);border-radius:18px;padding:18px}.impact b{color:var(--plum)}
+.product:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--lav2);z-index:2}.product-img{width:100%;height:210px;object-fit:contain;background:#faf7fa;display:block}.product-art{height:210px;background:linear-gradient(135deg,#f3eaf5,#fff8f7);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.art-pack{width:112px;height:142px;border:1px solid #d7c1e2;border-radius:18px 18px 22px 22px;background:linear-gradient(90deg,#e9d9ee,#fffafd 48%,#e4d0e9);box-shadow:0 12px 24px #6d477d20;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;position:relative}.art-pack:before{content:"";position:absolute;top:-12px;width:46px;height:17px;border-radius:6px 6px 2px 2px;background:#70507d}.art-pack.blush{border-radius:50%;width:130px;height:95px;background:linear-gradient(135deg,#f3c6d5,#fff0f5);border-color:#d99bb8}.art-pack.blush:before{top:-7px;width:88px;height:8px;border-radius:6px;background:#c884a7}.art-pack.lip{width:60px;height:145px;border-radius:13px 13px 9px 9px;background:linear-gradient(90deg,#c884a7,#f7dbe7,#b76b91)}.art-pack.lip:before{top:-22px;width:36px;height:25px;background:#6d477d}.art-pack.gel{width:100px;height:142px;border-radius:12px 12px 18px 18px;background:linear-gradient(90deg,#d7c1e2,#fffafd,#d7c1e2)}.art-pack.gel:before{top:-17px;width:54px;height:20px;background:#6d477d}.art-pack small{font-size:8px;letter-spacing:.08em;color:#6d477d;font-weight:800;text-transform:uppercase}.art-pack strong{font:11px Georgia,serif;color:#49334f;margin-top:7px;overflow-wrap:anywhere}.art-caption{position:absolute;bottom:10px;left:12px;right:12px;text-align:center;font-size:10px;color:#756b79}.product-body{padding:20px}.score-wrap{display:flex;align-items:center;gap:8px}.score{font-family:Georgia,serif;font-size:29px}.score-label{font-size:11px;font-weight:800;color:var(--muted)}.score.green{color:var(--good)}.score.yellow{color:var(--yellow)}.score.orange{color:var(--orange)}.score.red{color:var(--red)}.level.green{color:var(--good);font-weight:800}.level.yellow{color:#9a7517;font-weight:800}.level.orange{color:var(--orange);font-weight:800}.level.red{color:var(--red);font-weight:800}.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.legend span{padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}.legend .lg{background:#e9f4eb;color:#397346}.legend .ly{background:#fff6d9;color:#8b6b12}.legend .lo{background:#fff0e5;color:#a75525}.legend .lr{background:#fbe8eb;color:#a43d4c}.impact{margin-top:18px;background:linear-gradient(135deg,#f7eef9,#fff8f5);border:1px solid var(--line);border-radius:18px;padding:18px}.impact b{color:var(--plum)}
 .product-top{display:flex;justify-content:space-between;gap:10px;align-items:start}
 .tag{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;background:#f1e9f4;color:var(--plum);padding:7px 9px;border-radius:999px}
 .score{font-family:Georgia,serif;font-size:29px;color:var(--plum)}
@@ -139,6 +139,7 @@ footer p{color:#cfc1d0;font-size:13px}
   </div>
   <div class="panel compare">
     <table><thead><tr><th>Producte</th><th>Yuka</th><th>INCI Beauty</th><th>Diferència</th><th>Què ens indica?</th></tr></thead><tbody id="cmp"></tbody></table>
+    <div class="notice" style="margin-bottom:18px">Les imatges de les fitxes són il·lustracions esquemàtiques pròpies creades per a aquesta web; no són fotografies oficials dels productes. Així s’evita reutilitzar fotografies de tercers sense una llicència confirmada.</div>
     <div class="notice" style="margin-top:20px">La comparació mostra que les dues eines poden donar resultats diferents perquè utilitzen criteris propis. Les puntuacions són orientatives i no equivalen a una mesura directa del risc per a la salut.</div>
   </div>
 </div>
@@ -196,29 +197,29 @@ footer p{color:#cfc1d0;font-size:13px}
 
 <script>
 const data = [
-["Màscara de pestanyes","L'Oréal Paris","Mascara Panorama",29,"Paraffin · Phenoxyethanol","https://lilidrogerie.gr/image/cache/catalog/product-upload/30149649_1-800x800.jpg"],
-["Màscara de pestanyes","L'Oréal Paris","Paradise Big Deal",45,"Phenoxyethanol","https://licilasicdn.s3.amazonaws.com/public/product_images/49875/main/original.jpg"],
-["Màscara de pestanyes","Maybelline New York","Sky High",24,"Paraffin · Phenoxyethanol","https://images.wehkamp.nl/i/wehkamp/16734372_pb_01/maybelline-new-york-lash-sensational-sky-high-mascara-very-black-zwart-0000030166967.jpg?qlt=75&w=1200"],
-["Màscara de pestanyes","Maybelline New York","The Falsies Surreal",9,"BHT · Paraffin","https://d2o812a6k13pkp.cloudfront.net/Productos/40562209_0120240509171044.jpg"],
+["Màscara de pestanyes","L'Oréal Paris","Mascara Panorama",29,"Paraffin · Phenoxyethanol",null],
+["Màscara de pestanyes","L'Oréal Paris","Paradise Big Deal",45,"Phenoxyethanol",null],
+["Màscara de pestanyes","Maybelline New York","Sky High",24,"Paraffin · Phenoxyethanol",null],
+["Màscara de pestanyes","Maybelline New York","The Falsies Surreal",9,"BHT · Paraffin",null],
 ["Màscara de pestanyes","Rimmel","Volume Hyaluronic Acid",29,"Polybutene · Microcrystalline wax",null],
-["Màscara de pestanyes","Rimmel","Wonder'Extension",15,"Paraffin · Phenoxyethanol","https://images.fravega.com/f1000/f8025a38ebaac965efb494e88cd1bd38.jpg"],
-["Coloret","NYX","Buttermelt Blush",36,"Phenoxyethanol","https://www.medoget.com/cdn/shop/files/NYX_Professional_Makeup_Buttermelt_Blush_07_Butta_With_Time.png?v=1762424573&width=1030"],
-["Coloret","Deliplus","Blush mate 03 rosa (líquid)",67,"Cap ingredient assenyalat","https://iber.market/wp-content/uploads/2025/08/a5737208a20e4ace5c47b1e315b0e959-scaled.jpg"],
-["Coloret","Deliplus","Blush Mate (compacte)",30,"Polybutene · Phenoxyethanol","https://iber.market/wp-content/uploads/2025/08/62cb4f7076b0cbba385f1dc5cd211ba9-scaled.jpg"],
-["Coloret","Essence","Soft Touch",34,"Phenoxyethanol","https://eleven.se/storage/4F142F2B623432E8EEDABA2EC60D79D749122C7D9641A836726EF84C1D68BDC2/b561915fe1a14bbcbc6c385a7d8ce4c3/jpg/media/45639f1d169a4db29cdde4cd0e50fb32/B-194978.jpg?fit=bounds&height=560&quality=75&width=560"],
-["Coloret","Essence","Baby Got Blush 30",81,"Cap ingredient assenyalat","https://zedstorelb.com/cdn/shop/files/kremovye-rumyana-v-stike-essence-baby-got-blush_1200x1200.jpg?v=1686396206"],
-["Coloret","Revolution","Icon Blush Authentic Peach (paleta)",6,"Microcrystalline wax · Synthetic wax · Ozokerite · Phenoxyethanol · Polyethylene","https://www.revolutionbeauty.me/media/catalog/product/7/a/7a8a1b5f17cf5332663b1f8eb518db8a_1.jpg"],
-["Coloret","Revolution","Powder Blush",40,"Phenoxyethanol","https://www.revolutionbeauty.com/dw/image/v2/BCZJ_PRD/on/demandware.static/-/Sites-revbe-master-catalog/default/dwdf538a6a/images/hi-res/1884556_Ballerina-1-reshot34.jpg?sh=660&sm=fit&strip=false&sw=660"],
-["Coloret","Sheglam","Color Bloom liquid blush – On Point",20,"Phenoxyethanol","https://www.ohsogo.com/cdn/shop/files/OnPoint.jpg?v=1720520897&width=1500"],
-["Pintallavis","Deliplus","24H Lasting Lips",29,"Synthetic wax · Titanium dioxide","https://iber.market/wp-content/uploads/2025/08/2225727d19bc50ed09b33f70c79e3cc2-scaled.jpg"],
-["Pintallavis","L'Oréal Paris","Matte resistent (carmín)",5,"Microcrystalline wax · Calcium aluminum borosilicate · PET · Titanium dioxide","https://cdn.file-vault.shop/cdn/736/2025/01/17/LOreal-Paris-Infallible-Matte-Resistance-Liquid-Lipstick-up-to-16-Hour-Wear-Le-Rouge-Paris-420-016-Fl-Oz230-Shopping-Spree-1284587-4910545.jpg"],
-["Pintallavis","Maybelline New York","Superstay 24H (rouge passion)",0,"Alumina · Calcium aluminum borosilicate · Aluminum hydroxide · PET · Paraffin · Titanium dioxide · Ozokerite","https://www.rossmann.de/media-neu/825/MAM_8258688/MAM_8258688_SHOP_IMAGE_2.0.png?auto=webp&canvas=600%2C600&fit=bounds&format=webply&height=600&quality=80&width=600"],
-["Pintallavis","NYX Cosmetics","Lip Lingerie XXL",35,"Phenoxyethanol","https://i5.walmartimages.com/asr/8576f234-78e7-4cef-beeb-b84683abbb4a.fcb2eef8352d3d8aba61446eea9aa8e0.jpeg"],
-["Pintallavis","NYX Cosmetics","Butter Lip Gloss",0,"Octinoxate · BHT · Mineral oil · Synthetic wax · Phenoxyethanol · Titanium dioxide","https://www.nyxcosmetics.gr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-nyx-master-catalog/default/dw71683c8b/ProductImages/2020/Lips/Butter_Gloss/2021-updated/NYX-PMU-Makeup-Lips-Lip-Gloss-Butter-Gloss-BLG15-Angel-Food-Cake-000-0800897828363-OpenSwatch.jpeg"],
-["Gel fixador","Giorgi Line","Gel fijador Control Total",60,"Cap ingredient assenyalat en l’annex","https://cdn-bm.aktiosdigitalservices.com/tol/bm/media/product/img/700x700/A64825_00.jpg?t=20251224030327"],
-["Gel fixador","Deliplus","Xtra Forte Fixing Gel",15,"Benzyl salicylate · Hexamethylindanopyran · Phenoxyethanol","https://prod-mercadona.imgix.net/images/03ced9a1f31ca4756c0c7578fa82225a.jpg?fit=crop&h=1600&w=1600"],
-["Gel fixador","Got2b (Schwarzkopf)","Glued Water Resistant",33,"Phenoxyethanol","https://www.druni.es/media/catalog/product/1/3/1309498.jpg?canvas=700%3A700&fit=bounds&height=700&quality=80&width=700"],
-["Gel fixador","Taft (Schwarzkopf)","Styling Gel Power Invisible",33,"Phenoxyethanol","https://prod.cdn.plein.nl/producten/1000x1000/1087942.jpg"]
+["Màscara de pestanyes","Rimmel","Wonder'Extension",15,"Paraffin · Phenoxyethanol",null],
+["Coloret","NYX","Buttermelt Blush",36,"Phenoxyethanol",null],
+["Coloret","Deliplus","Blush mate 03 rosa (líquid)",67,"Cap ingredient assenyalat",null],
+["Coloret","Deliplus","Blush Mate (compacte)",30,"Polybutene · Phenoxyethanol",null],
+["Coloret","Essence","Soft Touch",34,"Phenoxyethanol",null],
+["Coloret","Essence","Baby Got Blush 30",81,"Cap ingredient assenyalat",null],
+["Coloret","Revolution","Icon Blush Authentic Peach (paleta)",6,"Microcrystalline wax · Synthetic wax · Ozokerite · Phenoxyethanol · Polyethylene",null],
+["Coloret","Revolution","Powder Blush",40,"Phenoxyethanol",null],
+["Coloret","Sheglam","Color Bloom liquid blush – On Point",20,"Phenoxyethanol",null],
+["Pintallavis","Deliplus","24H Lasting Lips",29,"Synthetic wax · Titanium dioxide",null],
+["Pintallavis","L'Oréal Paris","Matte resistent (carmín)",5,"Microcrystalline wax · Calcium aluminum borosilicate · PET · Titanium dioxide",null],
+["Pintallavis","Maybelline New York","Superstay 24H (rouge passion)",0,"Alumina · Calcium aluminum borosilicate · Aluminum hydroxide · PET · Paraffin · Titanium dioxide · Ozokerite",null],
+["Pintallavis","NYX Cosmetics","Lip Lingerie XXL",35,"Phenoxyethanol",null],
+["Pintallavis","NYX Cosmetics","Butter Lip Gloss",0,"Octinoxate · BHT · Mineral oil · Synthetic wax · Phenoxyethanol · Titanium dioxide",null],
+["Gel fixador","Giorgi Line","Gel fijador Control Total",60,"Cap ingredient assenyalat en l’annex",null],
+["Gel fixador","Deliplus","Xtra Forte Fixing Gel",15,"Benzyl salicylate · Hexamethylindanopyran · Phenoxyethanol",null],
+["Gel fixador","Got2b (Schwarzkopf)","Glued Water Resistant",33,"Phenoxyethanol",null],
+["Gel fixador","Taft (Schwarzkopf)","Styling Gel Power Invisible",33,"Phenoxyethanol",null],
 ];
 const inci = {
 "L'Oréal Paris|Mascara Panorama":34,
@@ -247,11 +248,25 @@ function impactText(p){
  }
  return "La puntuació Yuka és orientativa: per entendre el producte cal mirar també la seva composició i el context d’ús.";
 }
+function escapeHtml(s){
+ return String(s).replace(/[&<>"']/g, function(c){
+   return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+ });
+}
+function productArt(p, large=false){
+ const kind=p[0]==="Màscara de pestanyes"?"mascara":p[0]==="Coloret"?"blush":p[0]==="Pintallavis"?"lip":"gel";
+ const label=escapeHtml(p[2]);
+ const brand=escapeHtml(p[1]);
+ return `<div class="product-art" style="${large?"height:260px;border-radius:18px;margin-bottom:20px":""}" role="img" aria-label="Il·lustració esquemàtica de ${brand} ${label}, no és una fotografia del producte">
+   <div class="art-pack ${kind}"><small>${brand}</small><strong>${label}</strong></div>
+   <div class="art-caption">Il·lustració pròpia · representació esquemàtica</div>
+ </div>`;
+}
 function render(){
  const s=q.value.toLowerCase(),c=cat.value;
  const arr=data.map((p,i)=>({...p,i})).filter(p=>(c==="Totes les categories"||p[0]===c)&&(`${p[1]} ${p[2]}`.toLowerCase().includes(s)));
  grid.innerHTML=arr.length?arr.map(p=>`<article class="product" onclick="openDetail(${p.i})">
-   ${p[5]?`<img class="product-img" src="${p[5]}" alt="${p[1]} ${p[2]}" loading="lazy" onerror="imgFallback(this, ${JSON.stringify(p[1]+" · "+p[2])})">`:`<div class="product-img" style="display:grid;place-items:center;color:#8a7d8f;font-size:13px">Foto no disponible</div>`}
+   ${productArt(p)}
    <div class="product-body"><div class="product-top"><span class="tag">${p[0]}</span><div class="score-wrap"><span class="score ${tone(p[3])}">${p[3]}</span><span class="score-label">Yuka /100</span></div></div>
    <h3>${p[2]}</h3><div class="brand">${p[1]}</div>
    <div class="meter"><i style="width:${p[3]}%;background:${p[3]>=75?'var(--good)':p[3]>=50?'var(--yellow)':p[3]>=25?'var(--orange)':'var(--red)'}"></i></div><div class="level ${tone(p[3])}">${level(p[3])}</div></div>
@@ -267,7 +282,7 @@ function imgFallback(img,label){
 function openDetail(i){
  const p=data[i], key=p[1]+"|"+p[2], has=Object.prototype.hasOwnProperty.call(inci,key), t=tone(p[3]);
  document.getElementById("detail").innerHTML=`
- ${p[5]?`<img src="${p[5]}" alt="${p[1]} ${p[2]}" style="width:100%;height:260px;object-fit:contain;background:#faf7fa;border-radius:18px;margin-bottom:20px" onerror="imgFallback(this, ${JSON.stringify(p[1]+" · "+p[2])})">`:''}
+ ${productArt(p, true)}
  <div class="eyebrow">${p[0]}</div><h2 style="max-width:620px;margin-top:6px">${p[2]}</h2><div class="brand">${p[1]}</div>
  <div class="detail-score"><strong class="${t}">${p[3]}</strong><span>/100<br><small><b>Puntuació Yuka</b> · ${level(p[3])}</small></span></div>
  <div class="detail-grid">
